@@ -2,8 +2,8 @@
 # Refer to the theme docs for more details about each of these parameters.
 # https://blowfish.page/docs/getting-started/
 
-theme = "blowfish"
-baseURL = "https://pseudomanpaul.github.io"
+ theme = "blowfish" # UNCOMMENT THIS LINE
+ baseURL = "https://sourish-isi.github.io"
 defaultContentLanguage = "en"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
@@ -67,9 +67,12 @@ enableEmoji = true
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
-[params]
-author = "Aritrabha"  # Replace with your name
-  hideEmptyArticleList = true  # Requires Blowfish v2.6.0+
-[params.assets]
-customCSS = ["css/custom.css"]
-customJS  = ["js/typing.js"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
