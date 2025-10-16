@@ -2,7 +2,7 @@
                 title: "adilhyz.github.io"
                 tags: [Personal site]
                 externalUrl: "https://adilhyz.github.io"
-                weight: 441
+                weight: 451
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

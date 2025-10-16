@@ -25,14 +25,7 @@ modal.addEventListener("click", function (event) {
 document.addEventListener("keydown", function (event) {
   // Forward slash to open search wrapper
   if (event.key == "/") {
-    const active = document.activeElement
-    const tag = active.tagName
-    const isInputField =
-      tag === "INPUT" ||
-      tag === "TEXTAREA" ||
-      active.isContentEditable
-
-    if (!searchVisible && !isInputField) {
+    if (!searchVisible) {
       event.preventDefault();
       displaySearch();
     }

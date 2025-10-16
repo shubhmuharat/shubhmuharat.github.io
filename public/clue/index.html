@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="utf-8" />
+  data-auto-appearance="false">
+  <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Way to Heaven (or to Hell?) &middot; Shubh Samrajya &lt;span class=&#39;cursor&#39;&gt;&lt;/span&gt;</title>
-  <meta name="title" content="Way to Heaven (or to Hell?) &middot; Shubh Samrajya " />
+  <title>Aritrabha Majumdar</title>
+  <meta name="title" content="Aritrabha Majumdar" />
   
   <meta name="description" content="My Personal Website" />
   
@@ -30,8 +30,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1b5e2edbf246b74c52206cd73be04d568d530fd3542a3351fa782a42e59f42c410a3f109e60acdb23cb9c506bda7c3561f6a3d078c049e802477b972cbaebc57.css"
-    integrity="sha512-G14u2/JGt0xSIGzXO&#43;BNVo1TD9NUKjNR&#43;ngqQuWfQsQQo/EJ5grNsjy5xQa9p8NWH2o9B4wEnoAkd7lyy668Vw==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.99adb45993ca4ca32669747781692a50b1c60183624c8f19ff7fc30f2c78bf384b93505cfdeb3ef05481e5930779d0c762b4c85836087c4354df2758c5eadc22.css"
+    integrity="sha512-ma20WZPKTKMmaXR3gWkqULHGAYNiTI8Z/3/DDyx4vzhLk1Bc/es&#43;8FSB5ZMHedDHYrTIWDYIfENU3ydYxercIg==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -76,8 +76,6 @@
   <meta name="twitter:title" content="Way to Heaven (or to Hell?)">
   <meta name="twitter:description" content="My Personal Website">
 
-    
-  
   
   
 
@@ -148,10 +146,144 @@
   
   
   
+    <style>
+         
+        .site-title::after {
+          content: "|";
+          animation: blink 1s infinite;
+          margin-left: 2px;
+        }
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+      </style>
+
   
   <meta name="theme-color"/>
   
   
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      const canvas = document.createElement('canvas');
+      canvas.style.position = 'fixed';
+      canvas.style.top = '0';
+      canvas.style.left = '0';
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+      canvas.style.zIndex = '-1';
+      canvas.style.opacity = '0.5'; 
+      canvas.style.pointerEvents = 'none'; 
+      document.body.appendChild(canvas);
+
+      
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      
+      const numPaths = 50;
+      const maxSteps = 10000;
+      const paths = [];
+      const colors = [
+        'rgba(100, 181, 246, 0.7)',  
+        'rgba(77, 182, 172, 0.7)',   
+        'rgba(129, 199, 132, 0.7)',  
+        'rgba(255, 183, 77, 0.7)',   
+        'rgba(229, 115, 115, 0.7)'   
+      ];
+
+      
+      class BrownianPath {
+        constructor() {
+          this.reset();
+          this.steps = [];
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.lineWidth = Math.random() * 0.5+ 1.5;
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.steps = [{x: this.x, y: this.y}];
+          this.speedX = Math.random() * 2 - 1;
+          this.speedY = Math.random() * 2 - 1;
+        }
+
+        update() {
+  
+  const scale = 2; 
+  this.x += scale * (Math.random() - 0.5) * 2;
+  this.y += scale * (Math.random() - 0.5) * 2;
+
+  
+  this.steps.push({x: this.x, y: this.y});
+
+  
+  if (this.steps.length > maxSteps) {
+    this.steps.shift();
+  }
+
+  
+  if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+    this.reset();
+  }
+}
+
+        draw(ctx) {
+          if (this.steps.length < 2) return;
+
+          ctx.beginPath();
+          ctx.moveTo(this.steps[0].x, this.steps[0].y);
+
+          for (let i = 1; i < this.steps.length; i++) {
+            ctx.lineTo(this.steps[i].x, this.steps[i].y);
+          }
+
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth = this.lineWidth;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.stroke();
+
+          
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.lineWidth * 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      }
+
+      
+      for (let i = 0; i < numPaths; i++) {
+        paths.push(new BrownianPath());
+      }
+
+      
+      const ctx = canvas.getContext('2d');
+      function animate() {
+        
+        ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        
+        paths.forEach(path => {
+          path.update();
+          path.draw(ctx);
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      
+      animate();
+    });
+    </script>
+
 </head>
 <body
   class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
@@ -244,33 +376,6 @@
             
 
 
-            
-            
-            <div
-                class=" flex items-center">
-                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
-                    <div class="flex items-center justify-center dark:hidden">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                    </div>
-                    <div class="items-center justify-center hidden dark:flex">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                    </div>
-                </button>
-            </div>
             
 
         </nav>
@@ -542,9 +647,7 @@
   </section>
   
   <section class="mt-10 prose dark:prose-invert">
-    <p class="py-8 border-t">
-      <em></em>
-    </p>
+    
   </section>
   
 
@@ -561,7 +664,7 @@
 
     
     
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+    <p class="text-sm text-neutral-500 dark:text-neutral-400" style="text-align: center; width: 100%;">
       © 2028 Shubh. Are Rights Even Reserved?
     </p>
     
@@ -571,9 +674,6 @@
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
     
 
@@ -596,5 +696,6 @@
 
   </div>
 </body>
+<body class="not-homepage"></body>
 
 </html>
