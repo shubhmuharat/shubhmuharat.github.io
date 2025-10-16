@@ -2,31 +2,29 @@ disabled = false
 languageCode = "en"
 languageName = "English"
 weight = 1
-title = "Sourish Sarkar"
+title = "Shubh Samrajya <span class='cursor'></span>"
 
 [params]
   displayName = "EN"
   isoCode = "en"
   rtl = false
   dateFormat = "2 January 2006"
-   #logo = "assets/profile.jpg"
-   #secondaryLogo = "assets/profile.jpg"
-   description = "My personal website"
-  # copyright = "Copy, _right?_ :thinking_face:"
+ #logo = "logo.jpg"
+   secondaryLogo = "logo.png"
+   description = "My Personal Website"
+   copyright = "&copy; 2028 Shubh. Are Rights Even Reserved?"
 
  [params.author]
-   name = "Sourish Sarkar"
-  email = "sourish.sarkar13@gmail.com"
-   image = "profile.jpg"
-   imageQuality = 96
-  headline = "Pursuing MS at Indian Statistical Institute"
-#   bio = "A little bit about you"
+   name = "Shubh"
+   email = "aritrabhamajumdar.math@gmail.com"
+    image = "pic.jpg"
+    imageQuality = 96
+  headline = "Regime for Absolute Vigilance Across Nations (R.A.V.A.N.)"
+  # bio = "Regime for Absolute Vigilance Across Nations"
    links = [
-     { email = "sourish.sarkar13@gmail.com" },
-     { instagram = "https://www.instagram.com/sourishsar/" },
-      { linkedin = "https://linkedin.com/in/sourish-sarkar" },
-#     { orcid = "https://orcid.org/userid" },
-#     { twitter = "https://twitter.com/username" },
-#     { x-twitter = "https://twitter.com/username" },
-     { whatsapp = "https://wa.me/8777260944" },
+     {email = "mailto:aritrabhamajumdar.math@gmail.com"},
+    {github = "https://github.com/paulpseudoman" },
+    {linkedin = "https://www.linkedin.com/in/aritrabha-majumdar-706a7a215/"},
+    {instagram = "https://instagram.com/paul_pseudoman" },
+    {spotify = "https://open.spotify.com/user/31ws43q7vgyacltmmickqvoeodi4?si=_n7tG0rAQp2BtqC94ZNmjw&nd=1&dlsi=0ab860202f744b44" },
   ]

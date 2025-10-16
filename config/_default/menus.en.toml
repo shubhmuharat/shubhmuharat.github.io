@@ -21,18 +21,18 @@
   weight = 2
 
 [[main]]
-  name = "CV"
-  pageRef = "cv"
+  name = "POLKUS"
+  pageRef = "polkus"
   weight = 3
 
 [[main]]
-  name = "Projects"
-  pageRef = "projects"
+  name = "R.A.V.A.N."
+  pageRef = "ravan"
   weight = 4
 
 [[main]]
-  name = "Activities"
-  pageRef = "activities"
+  name = "Swades Files"
+  pageRef = "swadesfiles"
   weight = 5
 
 
