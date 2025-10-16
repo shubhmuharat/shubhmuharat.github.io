@@ -617,12 +617,222 @@
   <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
   
   </header>
-  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+  <section class="mt-12 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+    
+    <div class="order-first px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 lg:sticky lg:top-[140px]">
+        <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#file-001--project-janmabhoomi">File 001 – Project Janmabhoomi</a></li>
+    <li><a href="#file-002--operation-netravarna">File 002 – Operation Netravarna</a></li>
+    <li><a href="#file-003--operation-silent-margin">File 003 – Operation Silent Margin</a></li>
+    <li><a href="#file-004--the-student-x-case">File 004 – The Student X Case</a></li>
+    <li><a href="#file-005--project-nightshade">File 005 – Project Nightshade</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#file-001--project-janmabhoomi">File 001 – Project Janmabhoomi</a></li>
+    <li><a href="#file-002--operation-netravarna">File 002 – Operation Netravarna</a></li>
+    <li><a href="#file-003--operation-silent-margin">File 003 – Operation Silent Margin</a></li>
+    <li><a href="#file-004--the-student-x-case">File 004 – The Student X Case</a></li>
+    <li><a href="#file-005--project-nightshade">File 005 – Project Nightshade</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+           
+            $(e).removeClass('active').siblings('ul').hide();
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+         
+          $toc.find('a').parent('li').find('ul').hide();
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+
+      </div>
+    </div>
     
     <div class="min-w-0 min-h-0 max-w-prose">
       <blockquote>
 <p>Patriotism ends where obedience begins.</p>
 <p>&ndash; Internal R.A.V.A.N. memo, 2022</p></blockquote>
+
+
+<h2 class="relative group">File 001 – Project Janmabhoomi 
+    <div id="file-001--project-janmabhoomi" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-001--project-janmabhoomi" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Category: Demographic Engineering</li>
+<li>Summary: An initiative presented as a housing-rights reform secretly redirected land ownership to favored political blocs through algorithmic scoring.</li>
+<li>Findings: Internal scorecards weighted “cultural loyalty” higher than income or tenure.</li>
+<li>Status: Program “under restructuring.”</li>
+<li>Quote from insider memo: “Every roof bought us a vote.”</li>
+</ul>
+
+
+<h2 class="relative group">File 002 – Operation Netravarna 
+    <div id="file-002--operation-netravarna" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-002--operation-netravarna" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Category: Mass Surveillance &amp; Censorship</li>
+<li>Summary: A nationwide CCTV upgrade doubled as a behavioral-analysis network.</li>
+<li>Evidence: Camera firmware embedded with pattern-recognition tags linked to citizen tax IDs.</li>
+<li>Aftermath: When journalists traced the firmware supplier, the company dissolved within 48 hours.</li>
+<li>Tagline: “The eyes of the nation never blink.”</li>
+</ul>
+
+
+<h2 class="relative group">File 003 – Operation Silent Margin 
+    <div id="file-003--operation-silent-margin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-003--operation-silent-margin" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Category: Electoral Subversion</li>
+<li>Summary: Unexplained EVU transfers recorded across three wards hours before polling. Recovered ballots carried identical UV micro-marks, pointing to a single campaign warehouse. Logbooks edited post-event; chain-of-custody signatures duplicated.</li>
+<li>Outcome: Internal audit declared “technical error.” No further review ordered.
+<blockquote>
+<p>“If the margin is silent, the mandate never questions us.” — [REDACTED]</p></blockquote>
+</li>
+</ul>
+
+
+<h2 class="relative group">File 004 – The Student X Case 
+    <div id="file-004--the-student-x-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-004--the-student-x-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Category: Political Prosecution</li>
+<li>Summary: A university activist labeled a threat after leading campus demonstrations. Critical blog removed 13 min 27 sec after upload; arrest warrant issued within an hour. Media outlets circulated identical statements before trial began.</li>
+<li>Outcome: Conviction fast-tracked through High Court; appeal pending.
+<blockquote>
+<p>“Blog status: removed. Case status: guilty. Evidence: manufactured.”</p></blockquote>
+</li>
+</ul>
+
+
+<h2 class="relative group">File 005 – Project Nightshade 
+    <div id="file-005--project-nightshade" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-005--project-nightshade" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Category: Organized Exploitation / Financial Laundering</li>
+<li>Summary: Hospitality firms used as fronts to channel illicit funds and coerce workers into prostitution. Payment ledgers disguised as “event logistics” routed through three charity trusts. Hotel manifests show identical contact numbers for separate “staff” groups.</li>
+<li>Outcome: Inquiry announced, then deferred indefinitely.
+<blockquote>
+<p>“Every ledger hides a body, every signature a silence.”</p></blockquote>
+</li>
+</ul>
 
     </div>
 
