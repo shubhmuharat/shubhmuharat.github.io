@@ -8,10 +8,10 @@
   {{/* Title */}}
   {{ if .IsHome -}}
   <title>Aritrabha Majumdar</title>
-  <meta name="title" content="Aritrabha Majumdar" />
+  <meta name="title" content="Shubh Samrajya" />
   {{- else -}}
   <title>Aritrabha Majumdar</title>
-  <meta name="title" content="Aritrabha Majumdar" />
+  <meta name="title" content="Shubh Samrajya" />
   {{- end }}
   {{/* Metadata */}}
   {{ with (.Params.Summary | default .Params.Description) | default .Site.Params.description -}}
@@ -138,13 +138,13 @@
   <script>
 
     const firebaseConfig = {
-      apiKey: {{ $.Site.Params.firebase.apiKey }},
-      authDomain: {{ $.Site.Params.firebase.apiKey }},
-      projectId: {{ $.Site.Params.firebase.projectId }},
-      storageBucket: {{ $.Site.Params.firebase.storageBucket }},
-      messagingSenderId: {{ $.Site.Params.firebase.messagingSenderId }},
-      appId: {{ $.Site.Params.firebase.appId }},
-      measurementId: {{ $.Site.Params.firebase.measurementId }}
+      apiKey: "{{ $.Site.Params.firebase.apiKey }}",
+      authDomain: "{{ $.Site.Params.firebase.authDomain }}",
+      projectId: "{{ $.Site.Params.firebase.projectId }}",
+      storageBucket: "{{ $.Site.Params.firebase.storageBucket }}",
+      messagingSenderId: "{{ $.Site.Params.firebase.messagingSenderId }}",
+      appId: "{{ $.Site.Params.firebase.appId }}",
+      measurementId: "{{ $.Site.Params.firebase.measurementId }}"
     };
 
     var app = firebase.initializeApp(firebaseConfig);
