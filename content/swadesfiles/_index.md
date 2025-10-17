@@ -42,3 +42,9 @@ title: Swades Files
 - Summary: Hospitality firms used as fronts to channel illicit funds and coerce workers into prostitution. Payment ledgers disguised as “event logistics” routed through three charity trusts. Hotel manifests show identical contact numbers for separate “staff” groups.
 - Outcome: Inquiry announced, then deferred indefinitely.
   > “Every ledger hides a body, every signature a silence.”
+
+---
+
+> Find the Loom of Fate and it will be yours to command.
+
+---

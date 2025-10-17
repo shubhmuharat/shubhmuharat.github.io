@@ -15,9 +15,9 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/polkus/" />
+  <link rel="canonical" href="http://localhost:1313/finalmemo/" />
   
-  <link rel="alternate" type="application/rss+xml" href="/polkus/index.xml" title="Shubh Samrajya <span class='cursor'></span>" />
+  <link rel="alternate" type="application/rss+xml" href="/finalmemo/index.xml" title="Shubh Samrajya <span class='cursor'></span>" />
   
   
   
@@ -64,16 +64,16 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/polkus/">
+  <meta property="og:url" content="http://localhost:1313/finalmemo/">
   <meta property="og:site_name" content="Shubh Samrajya ">
-  <meta property="og:title" content="POLKUS">
+  <meta property="og:title" content="Draft Report">
   <meta property="og:description" content="My Personal Website">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="POLKUS">
+  <meta name="twitter:title" content="Draft Report">
   <meta name="twitter:description" content="My Personal Website">
 
   
@@ -124,6 +124,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.0b0b4dac726624d4d4920b7a7b9a5466b2b0340759e8e557d78fc4a61f849f1fffed36ddb1d445014f4b936a3a46d3310b476c54958e73ecf5b53ba63c3dd01d.js" integrity="sha512-CwtNrHJmJNTUkgt6e5pUZrKwNAdZ6OVX14/Eph&#43;Enx//7TbdsdRFAU9Lk2o6RtMxC0dsVJWOc&#43;z1tTumPD3QHQ=="></script>
 
 
 
@@ -570,7 +573,7 @@
 
  <header>
   
-  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">POLKUS</h1>
+  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Draft Report</h1>
   <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
     
 
@@ -609,161 +612,104 @@
       
     
   <script>
-    var oid = "views_polkus\\_index.md"
-    var oid_likes = "likes_polkus\\_index.md"
+    var oid = "views_finalmemo\\_index.md"
+    var oid_likes = "likes_finalmemo\\_index.md"
   </script>
   
   
   <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
   
   </header>
-  <section class="mt-12 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
-    
-    <div class="order-first px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 lg:sticky lg:top-[140px]">
-        <details open id="TOCView"
-  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
-  <summary
-    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#overview">Overview:</a></li>
-    <li><a href="#personal-log">Personal Log</a></li>
-  </ul>
-</nav>
-  </div>
-</details>
-<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
-  <summary
-    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#overview">Overview:</a></li>
-    <li><a href="#personal-log">Personal Log</a></li>
-  </ul>
-</nav>
-  </div>
-</details>
-
-<script>
-
-  var margin = 200;
-  var marginError = 50;
-
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
-
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
-
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
-
-
-
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
-
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-        active.each(function (i, e) {
-           
-            $(e).removeClass('active').siblings('ul').hide();
-          
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
-
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-         
-          $toc.find('a').parent('li').find('ul').hide();
-        
-        onScroll();
-      });
-    }
-  })();
-
-
-</script>
-
-      </div>
-    </div>
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
     
     <div class="min-w-0 min-h-0 max-w-prose">
-      
+      <hr>
+<p>R.A.V.A.N.</p>
+<p>(Regime for Absolute Vigilance Across Nations)</p>
+<hr>
+<div id="typeit-166ac6c8cdcce4bf012047a3505a8b27"></div>
 
-<h2 class="relative group">Overview: 
-    <div id="overview" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#overview" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-166ac6c8cdcce4bf012047a3505a8b27", {
+        strings: ["\r","Old Task: Bring about Anarchy\r","\r","Task Status: Complete\r","\r","Initial Funds Allocated by KALIPURUSH: Rs. 3,760 crores\r","\r","Funds Used: Rs. 4,250 crores\r","\r","Task Report: To be prepared and submitted to CARTEL\r",""],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<hr>
+<div id="typeit-66a7fc39ec57ffa6fdf998c1960a3217"></div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-66a7fc39ec57ffa6fdf998c1960a3217", {
+        strings: ["\r","Secondary Task: Take Control of POLKUS or destroy\r","\r","Task Status: Taken Control\r","\r","New Task: Establish new Political and Social Order\r",""],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<hr>
+<div id="typeit-9792e4d08348b9eb44a2397ac9610675"></div>
 
-<h2 class="relative group">Personal Log 
-    <div id="personal-log" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#personal-log" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>I am pretty certain that <strong><em>POLKUS</em></strong> is scraping data from distributed public domains only.
-But how are they able to do that? Is <em>encryption</em> really a fallacy?</li>
-</ul>
-<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
-  <iframe
-    src="/graph/index.html"
-    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
-    loading="lazy"
-  ></iframe>
-</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-9792e4d08348b9eb44a2397ac9610675", {
+        strings: ["\r","New Task: Establish new political \u0026 social order\r","\r","Task Status: In progress\r","\r","Fund Status: To be discused\r",""],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<hr>
+<div id="typeit-3e4ac8b00172a8c64b4950adb0299867"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-3e4ac8b00172a8c64b4950adb0299867", {
+        strings: ["\r","Operational Summary:\r","\r","Revered Sir,\r","\r","The rogue contenders, government, and governance have been neutralized. The public's need to vent has been satiated. The slate is now clear and ready to be painted without hindrance from organizations, public, or individuals.\r","\r","Pest Control: Successful\r",""],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
 <hr>
 <blockquote>
-<p>Show me that you are worthy enough to rescue her.</p></blockquote>
+<div id="typeit-36183fb2f229ceed1109b3e53a8b3b6b"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-36183fb2f229ceed1109b3e53a8b3b6b", {
+        strings: ["\"Those who control money, control the narrative.\""],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script></blockquote>
+<hr>
+<p>KALIPURUSH CARTEL</p>
+<p>(Global Economic Oversight &amp; Strategic Resource Control)</p>
 <hr>
 
     </div>

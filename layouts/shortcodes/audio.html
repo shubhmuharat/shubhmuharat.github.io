@@ -1,0 +1,16 @@
+<figure {{ with .Get "class" }}class="{{ . }}" {{ end }}>
+    <audio controls preload="{{ .Get "preload" | default "metadata" }}" aria-label="{{ .Get "aria" | default "Audio player" }}">
+        {{ $mp3 := .Get "mp3" }}
+        {{ if $mp3 }}
+        <source src="{{ $mp3 | relURL }}" type="audio/mpeg">
+        {{ else if .Get "src" }}
+        <source src="{{ .Get "src" | relURL }}" type="audio/mpeg">
+        {{ end }}
+        {{ with .Get "ogg" }}
+        <source src="{{ . | relURL }}" type="audio/ogg">
+        {{ end }}
+        <!-- fallback download link -->
+        <p>Your browser does not support the audio element. <a href="{{ with .Get "mp3" }}{{ . | relURL }}{{ else }}{{ .Get "src" | relURL }}{{ end }}">Download audio</a></p>
+    </audio>
+    {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

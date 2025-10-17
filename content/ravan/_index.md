@@ -17,6 +17,13 @@ title: R.A.V.A.N. Operations Archive
 - Outcome: Health ministry denied involvement; three private research directors resigned the same month. Tagline on internal memo: "When medicine obeys politics, both patient and policy die."
 
 ## Project Tasneem {{< typeit lifelike=true >}}(2027-2029){{< /typeit >}}
+
 - Objective: Overthrow the regime and establish anarchy.
 - Status: Ongoing
 - Summary: The apt candidates for carrying out the mission have been procured and all pieces needed to help them have been put into place. They have successfully completed investigating all parties involved.
+
+---
+
+> Then, the threads of all fate will be yours to re-weave.
+
+---

@@ -1,8 +1,11 @@
 ---
 title: Way to Heaven (or to Hell?)
 ---
+
+{{<audio src="clue.mp3" caption="Clue" >}}
+
 {{< typeit lifelike=true >}}
-Regime change and faces too,
+Regimes change and faces too,
 People change and initials do.
 Fame of people’s faces known,
 Voices thereafter do ignore.
