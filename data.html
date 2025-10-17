@@ -31,7 +31,8 @@
 </style>
 
 <!-- MathJax for LaTeX rendering -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="wrap">
@@ -41,7 +42,7 @@
       </div>
       <div>
         <h1>POLKUS Investigations — Analytical Log</h1>
-        <p class="muted">A running research dossier by Alan Jasonge — model summaries, equations, algorithm notes and anonymized stats.</p>
+        <p class="muted">A running research dossier by Shubh — model summaries, equations, algorithm notes and anonymized stats.</p>
       </div>
     </header>
 
@@ -65,9 +66,9 @@
           <p class="small" style="margin-top:8px;">
             <strong>1. Sentiment influence kernel (continuous-time):</strong>
             <div style="margin-top:6px;" class="small">
-              \\[
+              \[
                 I(t) = \int_{-\infty}^{t} K(t - \tau)\, S(\tau)\, d\tau
-              \\]
+              \]
             </div>
             <div class="muted small" style="margin-top:6px;">
               where \(S(\tau)\) is aggregate social signal (volume × polarity) and \(K(\cdot)\) a decaying influence kernel.
@@ -77,9 +78,9 @@
           <p class="small" style="margin-top:10px;">
             <strong>2. Policy impact score (discrete):</strong>
             <div class="small" style="margin-top:6px;">
-              \\[
+              \[
                 P_{c,t} = \sigma\!\Big( w_1 I_t + w_2 E_{c,t} + w_3 D_{c,t} + b\Big)
-              \\]
+              \]
             </div>
             <div class="muted small">
               where \(P_{c,t}\) = predicted compliance in constituency \(c\) at time \(t\); \(E\)=economic indicator vector, \(D\)=demographic features; \(\sigma\) = logistic.
@@ -89,9 +90,9 @@
           <p class="small" style="margin-top:10px;">
             <strong>3. Control objective (optimization view):</strong>
             <div class="small" style="margin-top:6px;">
-              \\[
+              \[
                 \min_{\theta}\; \sum_{c,t} \ell\big( y_{c,t}, P_{c,t}(\theta) \big) + \lambda \|\theta\|_2^2
-              \\]
+              \]
             </div>
             <div class="muted small">Loss \(\ell\) = cross-entropy of desired vs observed behaviours; \(\theta\) parameters of the action policy generator.</div>
           </p>
