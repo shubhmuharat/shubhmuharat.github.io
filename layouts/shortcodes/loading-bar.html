@@ -1,0 +1,233 @@
+<div class="loading-container">
+  <h3>Progress Tracker</h3>
+  <div class="loading-bar">
+    <div class="progress" id="istProgress"></div>
+  </div>
+  <div class="progress-info">
+    <span id="progressPercentage">0%</span>
+    <span id="timeRemaining">11:00:00 remaining</span>
+  </div>
+  <div class="progress-time">
+    <span>Start (IST): <span id="startTime">23:30</span></span>
+    <span>End (IST): <span id="endTime">10:30</span></span>
+  </div>
+  <div class="time-info">
+    <small>Current IST: <span id="currentIST">-</span> | Status: <span id="statusText">-</span></small>
+  </div>
+  <div class="debug-info" style="font-size: 10px; color: #666; margin-top: 10px;">
+    <div>Debug: <span id="debugInfo">-</span></div>
+  </div>
+</div>
+
+<style>
+.loading-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loading-bar {
+  width: 100%;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 12px;
+  width: 0%;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.progress.completed {
+  background: #4CAF50 !important;
+}
+
+.progress.pending {
+  background: #666 !important;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.progress-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.time-info {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}
+</style>
+
+<script>
+class ISTProgress {
+  constructor() {
+    this.START_HOUR = 23; // 11 PM IST
+    this.START_MINUTE = 30;
+    this.END_HOUR = 10;   // 10 AM IST
+    this.END_MINUTE = 30;
+
+    this.progressElement = document.getElementById('istProgress');
+    this.percentageElement = document.getElementById('progressPercentage');
+    this.timeRemainingElement = document.getElementById('timeRemaining');
+    this.startTimeElement = document.getElementById('startTime');
+    this.endTimeElement = document.getElementById('endTime');
+    this.currentISTElement = document.getElementById('currentIST');
+    this.statusTextElement = document.getElementById('statusText');
+    this.debugInfo = document.getElementById('debugInfo');
+
+    this.init();
+  }
+
+  // Get current time in IST (simplified - assumes server/client is in IST)
+  getCurrentIST() {
+    return new Date(); // For Indian users, this should be IST
+  }
+
+  getTodaysCycle() {
+    const now = this.getCurrentIST();
+    const currentHour = now.getHours();
+    const currentMinutes = now.getMinutes();
+
+    // Determine which cycle we're in
+    let cycleStart = new Date(now);
+    let cycleEnd = new Date(now);
+
+    if (currentHour < this.END_HOUR || (currentHour === this.END_HOUR && currentMinutes < this.END_MINUTE)) {
+      // We're in the morning (before 10:30 AM) - cycle started yesterday at 11:30 PM
+      cycleStart.setDate(cycleStart.getDate() - 1);
+      cycleStart.setHours(this.START_HOUR, this.START_MINUTE, 0, 0);
+      cycleEnd.setHours(this.END_HOUR, this.END_MINUTE, 0, 0);
+    } else if (currentHour < this.START_HOUR || (currentHour === this.START_HOUR && currentMinutes < this.START_MINUTE)) {
+      // We're between 10:30 AM and 11:30 PM - show completed
+      cycleStart.setHours(this.START_HOUR, this.START_MINUTE, 0, 0);
+      cycleStart.setDate(cycleStart.getDate() - 1);
+      cycleEnd.setHours(this.END_HOUR, this.END_MINUTE, 0, 0);
+    } else {
+      // We're at or after 11:30 PM - current cycle
+      cycleStart.setHours(this.START_HOUR, this.START_MINUTE, 0, 0);
+      cycleEnd.setDate(cycleEnd.getDate() + 1);
+      cycleEnd.setHours(this.END_HOUR, this.END_MINUTE, 0, 0);
+    }
+
+    // Debug information
+    this.debugInfo.textContent =
+      `Now: ${currentHour}:${currentMinutes.toString().padStart(2, '0')} | ` +
+      `Cycle: ${cycleStart.getDate()}/${cycleStart.getMonth()+1} ${cycleStart.getHours()}:${cycleStart.getMinutes().toString().padStart(2, '0')} - ` +
+      `${cycleEnd.getDate()}/${cycleEnd.getMonth()+1} ${cycleEnd.getHours()}:${cycleEnd.getMinutes().toString().padStart(2, '0')}`;
+
+    return { start: cycleStart, end: cycleEnd, now };
+  }
+
+  formatTime(date) {
+    const hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours % 12 || 12;
+    return `${displayHours}:${minutes} ${ampm}`;
+  }
+
+  formatTimeRemaining(milliseconds) {
+    if (milliseconds <= 0) return '00:00:00';
+
+    const hours = Math.floor(milliseconds / (1000 * 60 * 60));
+    const minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  updateProgress() {
+    const { start, end, now } = this.getTodaysCycle();
+
+    // Update time displays
+    this.startTimeElement.textContent = this.formatTime(start);
+    this.endTimeElement.textContent = this.formatTime(end);
+    this.currentISTElement.textContent = this.formatTime(now);
+
+    const nowTime = now.getTime();
+    const startTime = start.getTime();
+    const endTime = end.getTime();
+
+    if (nowTime < startTime) {
+      // Not started yet - show previous cycle as completed
+      this.progressElement.style.width = '100%';
+      this.progressElement.className = 'progress completed';
+      this.percentageElement.textContent = '100%';
+
+      const timeUntilStart = startTime - nowTime;
+      this.timeRemainingElement.textContent = `Next starts in ${this.formatTimeRemaining(timeUntilStart)}`;
+      this.statusTextElement.textContent = 'Waiting for next cycle';
+    } else if (nowTime >= endTime) {
+      // Completed - stay at 100%
+      this.progressElement.style.width = '100%';
+      this.progressElement.className = 'progress completed';
+      this.percentageElement.textContent = '100%';
+      this.timeRemainingElement.textContent = 'Cycle Completed';
+      this.statusTextElement.textContent = 'Completed';
+    } else {
+      // In progress
+      const elapsed = nowTime - startTime;
+      const totalDuration = endTime - startTime;
+      const progress = (elapsed / totalDuration) * 100;
+      const remaining = endTime - nowTime;
+
+      this.progressElement.style.width = `${progress}%`;
+      this.progressElement.className = 'progress';
+      this.percentageElement.textContent = `${progress.toFixed(2)}%`;
+      this.timeRemainingElement.textContent = `${this.formatTimeRemaining(remaining)} remaining`;
+      this.statusTextElement.textContent = 'In progress';
+    }
+  }
+
+  init() {
+    this.updateProgress();
+    setInterval(() => this.updateProgress(), 1000);
+  }
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  new ISTProgress();
+});
+</script>

@@ -22,9 +22,9 @@ title = "Shubh Samrajya <span class='cursor'></span>"
   headline = "Regime for Absolute Vigilance Across Nations (R.A.V.A.N.)"
   # bio = "Regime for Absolute Vigilance Across Nations"
    links = [
-     {email = "mailto:aritrabhamajumdar.math@gmail.com"},
-    {github = "https://github.com/paulpseudoman" },
-    {linkedin = "https://www.linkedin.com/in/aritrabha-majumdar-706a7a215/"},
-    {instagram = "https://instagram.com/paul_pseudoman" },
-    {spotify = "https://open.spotify.com/user/31ws43q7vgyacltmmickqvoeodi4?si=_n7tG0rAQp2BtqC94ZNmjw&nd=1&dlsi=0ab860202f744b44" },
+     {email = "mailto:shubhsamrajya.ravan@gmail.com"},
+    # {github = "https://github.com/shubhmuharat"},
+    # {linkedin = "https://www.linkedin.com/in/aritrabha-majumdar-706a7a215/"},
+    # {instagram = "https://instagram.com/paul_pseudoman" },
+    {spotify = "https://spotify.link/vz0QwtBHxXb" },
   ]

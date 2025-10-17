@@ -33,7 +33,7 @@ title: Winner
 
 <div class="celebrate-wrap">
   <h1 class="celebrate-title">Winner</h1>
-  <p>Congratulations — celebration in progress!</p>
+  <p>Congratulations — Destruction in progress!</p>
 </div>
 
 <canvas id="celebrate-canvas" aria-hidden="true"></canvas>

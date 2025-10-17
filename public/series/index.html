@@ -90,22 +90,7 @@
   
   
   
-  <link href="https://github.com/paulpseudoman" rel="me" />
-  
-  
-  
-  
-  <link href="https://www.linkedin.com/in/aritrabha-majumdar-706a7a215/" rel="me" />
-  
-  
-  
-  
-  <link href="https://instagram.com/paul_pseudoman" rel="me" />
-  
-  
-  
-  
-  <link href="https://open.spotify.com/user/31ws43q7vgyacltmmickqvoeodi4?si=_n7tG0rAQp2BtqC94ZNmjw&amp;nd=1&amp;dlsi=0ab860202f744b44" rel="me" />
+  <link href="https://spotify.link/vz0QwtBHxXb" rel="me" />
   
   
   
@@ -160,126 +145,6 @@
   <meta name="theme-color"/>
   
   
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      const canvas = document.createElement('canvas');
-      canvas.style.position = 'fixed';
-      canvas.style.top = '0';
-      canvas.style.left = '0';
-      canvas.style.width = '100%';
-      canvas.style.height = '100%';
-      canvas.style.zIndex = '-1';
-      canvas.style.opacity = '0.5'; 
-      canvas.style.pointerEvents = 'none'; 
-      document.body.appendChild(canvas);
-
-      
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-
-      
-      const numPaths = 50;
-      const maxSteps = 10000;
-      const paths = [];
-      const colors = [
-        'rgba(100, 181, 246, 0.7)',  
-        'rgba(77, 182, 172, 0.7)',   
-        'rgba(129, 199, 132, 0.7)',  
-        'rgba(255, 183, 77, 0.7)',   
-        'rgba(229, 115, 115, 0.7)'   
-      ];
-
-      
-      class BrownianPath {
-        constructor() {
-          this.reset();
-          this.steps = [];
-          this.color = colors[Math.floor(Math.random() * colors.length)];
-          this.lineWidth = Math.random() * 0.5+ 1.5;
-        }
-
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.steps = [{x: this.x, y: this.y}];
-          this.speedX = Math.random() * 2 - 1;
-          this.speedY = Math.random() * 2 - 1;
-        }
-
-        update() {
-  
-  const scale = 2; 
-  this.x += scale * (Math.random() - 0.5) * 2;
-  this.y += scale * (Math.random() - 0.5) * 2;
-
-  
-  this.steps.push({x: this.x, y: this.y});
-
-  
-  if (this.steps.length > maxSteps) {
-    this.steps.shift();
-  }
-
-  
-  if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-    this.reset();
-  }
-}
-
-        draw(ctx) {
-          if (this.steps.length < 2) return;
-
-          ctx.beginPath();
-          ctx.moveTo(this.steps[0].x, this.steps[0].y);
-
-          for (let i = 1; i < this.steps.length; i++) {
-            ctx.lineTo(this.steps[i].x, this.steps[i].y);
-          }
-
-          ctx.strokeStyle = this.color;
-          ctx.lineWidth = this.lineWidth;
-          ctx.lineCap = 'round';
-          ctx.lineJoin = 'round';
-          ctx.stroke();
-
-          
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.lineWidth * 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.color;
-          ctx.fill();
-        }
-      }
-
-      
-      for (let i = 0; i < numPaths; i++) {
-        paths.push(new BrownianPath());
-      }
-
-      
-      const ctx = canvas.getContext('2d');
-      function animate() {
-        
-        ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        
-        paths.forEach(path => {
-          path.update();
-          path.draw(ctx);
-        });
-
-        requestAnimationFrame(animate);
-      }
-
-      
-      animate();
-    });
-    </script>
 
 </head>
 <body
@@ -333,9 +198,9 @@
 
             
             
-  <a href="/polkus/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/data.html"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="POLKUS">
+    <p class="text-base font-medium" title="">
         POLKUS
     </p>
 </a>
@@ -478,9 +343,9 @@
 
                     
   <li class="mt-1">
-    <a href="/polkus/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/data.html"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="POLKUS">
+        <p class="text-bg font-bg" title="">
             POLKUS
         </p>
     </a>
@@ -565,8 +430,38 @@
 
 
  
+  
+   
+  
+ 
 
 
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/background_hu_6f1419e2a04b20cc.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
 
  
 

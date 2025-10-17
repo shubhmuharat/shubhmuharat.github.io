@@ -22,7 +22,7 @@
 
 [[main]]
   name = "POLKUS"
-  pageRef = "polkus"
+  url = "/data.html"
   weight = 3
 
 [[main]]

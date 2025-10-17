@@ -42,7 +42,7 @@ aside.toc,
 ## Project Tasneem {{< typeit lifelike=true >}}(2027-20..{{< /typeit >}}
 
 - Objective: Overthrow the regime and establish anarchy.
-- Status: Ongoing
+- Status: {{< loading-bar >}}
 - Summary: The apt candidates for carrying out the mission have been procured and all pieces needed to help them have been put into place. They have successfully completed investigating all parties involved.
 
 ---
