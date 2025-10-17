@@ -2,6 +2,29 @@
 title: R.A.V.A.N. Operations Archive
 ---
 
+<!-- Page-local CSS: hide side contents/TOC for this page only -->
+<style>
+/* common TOC/sidebar selectors — hide them on this page */
+.table-of-contents,
+.toc,
+.post-toc,
+#TableOfContents,
+.tocify-wrapper,
+aside.toc,
+.site-toc,
+.page-toc,
+.sidebar .toc,
+#toc,
+.nav-toc {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+</style>
+
 ## Operation Blindfold (2020-2023)
 
 - Objective: Exposure of government-funded media manipulation networks.
@@ -16,7 +39,7 @@ title: R.A.V.A.N. Operations Archive
 - Summary: An internal review revealed that clinical-trial data for a major national vaccine program had been altered to match political timelines. R.A.V.A.N. leaked redacted laboratory memos, revealing dosage inconsistencies and procurement bribes disguised as "emergency logistics."
 - Outcome: Health ministry denied involvement; three private research directors resigned the same month. Tagline on internal memo: "When medicine obeys politics, both patient and policy die."
 
-## Project Tasneem {{< typeit lifelike=true >}}(2027-2029){{< /typeit >}}
+## Project Tasneem {{< typeit lifelike=true >}}(2027-20..{{< /typeit >}}
 
 - Objective: Overthrow the regime and establish anarchy.
 - Status: Ongoing

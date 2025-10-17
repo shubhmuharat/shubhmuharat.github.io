@@ -4,7 +4,7 @@ title: Way to Heaven (or to Hell?)
 
 {{<audio src="clue.mp3" caption="Clue" >}}
 
-{{< typeit lifelike=true >}}
+{{< typeit lifelike=false >}}
 Regimes change and faces too,
 People change and initials do.
 Fame of people’s faces known,
