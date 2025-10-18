@@ -34,10 +34,10 @@ title: Winner
 <div class="celebrate-wrap">
   <h1 class="celebrate-title">Winner</h1>
   <p>Congratulations — Destruction in progress!</p>
-  <p>Until next time that we meet,
-  Places alone you will not tread,
-  Writing on a new blank sheet,
-  Travel through time with a glass of mead.</p>
+  <p>Until next time that we meet,</p>
+  <p>Places alone you will not tread,</p>
+  <p>Writing on a new blank sheet,</p>
+  <p>Travel through time with a glass of mead.</p>
 </div>
 
 <canvas id="celebrate-canvas" aria-hidden="true"></canvas>
